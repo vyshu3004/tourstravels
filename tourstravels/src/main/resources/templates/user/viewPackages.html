@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/styles.css">
+    <div th:insert="navigation/userNav.html"></div>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col col-md-4" th:each="tourPackage : ${tourPackages}">
+            <div class="card">
+                <div class="card-header">Package</div>
+                <div class="card-body">
+                    <img th:src="'data:image/jpg;base64,' + ${tourPackage.photo}" style="width: 18rem;"/>
+
+                    <div class="card-text" th:text="'PackageName :' + ' ' +  ${tourPackage.pkgName}"></div>
+                    <div class="card-text" th:text="'Price :' + ' ' +  ${tourPackage.price}"></div>
+                    <div class="card-text" th:text="'City :' + ' ' +  ${tourPackage.city}"></div>
+                    <div class="card-text" th:text="'State :' + ' ' +  ${tourPackage.state}"></div>
+                    <div class="card-text" th:text="'Country :' + ' ' +  ${tourPackage.country}"></div>
+                    <br>
+                    <input type="text" th:value="${tourPackage.pId}" name="pId" hidden/>
+                    <br>
+
+                    <a class="btn btn-info" th:href="'/bookPackage/' +${tourPackage.pId}" value="submit" >Book</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

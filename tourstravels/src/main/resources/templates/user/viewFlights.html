@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/styles.css">
+  <div th:insert="navigation/userNav.html"></div>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col col-md-4" th:each="flight : ${flights}">
+      <div class="card">
+        <div class="card-header">Flight</div>
+        <div class="card-body">
+          <form>
+            <div class="card-text" th:text="'FlightName :' + ' ' +  ${flight.fName}"></div>
+            <div class="card-text" th:text="'Fare :' + ' ' +  ${flight.fare}"></div>
+            <div class="card-text" th:text="'fromCity :' + ' ' +  ${flight.fromCity}"></div>
+            <div class="card-text" th:text="'toCity :' + ' ' +  ${flight.toCity}"></div>
+            <div class="card-text" th:text="'fromState :' + ' ' +  ${flight.fromState}"></div>
+            <div class="card-text" th:text="'toState :' + ' ' +  ${flight.toState}"></div>
+            <div class="card-text" th:text="'fromCountry :' + ' ' +  ${flight.fromCountry}"></div>
+            <div class="card-text" th:text="'toCountry :' + ' ' +  ${flight.toCountry}"></div>
+            <br>
+            <input type="text" th:value="${flight.id}" name="Id" hidden/>
+            <br>
+            <a class="btn btn-info" th:href="'/bookFlight/'+${flight.id}"  value="submit">Book</a>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

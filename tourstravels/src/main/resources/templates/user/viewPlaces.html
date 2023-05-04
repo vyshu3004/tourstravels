@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="/styles.css">
+  <div th:insert="navigation/userNav.html"></div>
+</head>
+<body>
+<section id = "blog" class = "py-4">
+<div class = "container" th:each="place : ${places}">
+  <div class = "title-wrap">
+    <h2 class = "sm-title">read these blog for information</h2>
+    <h3 class = "lg-title">recent blog</h3>
+  </div>
+  <div class="row">
+  <div class="col col-md-4" >
+    <div class = "blog-row">
+      <div class = "blog-item my-2 shadow">
+        <div class = "blog-item-top">
+          <img th:src="'data:image/jpg;base64,' + ${place.photo}" alt = "blog" style="width:match-parent;">
+          <span class = "blog-date" th:text="${place.pname}"></span>
+        </div>
+        <div class = "blog-item-bottom">
+          <p class = "text" th:text="${place.description}"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</section>
+</body>
+</html>

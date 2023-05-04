@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css">
+  <div th:insert="navigation/userNav.html"></div>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-7">
+
+            <h3 class="display-5">Bill Payment</h3>
+            <div class="alert alert-danger" th:if="${error}" th:text="${error}"></div>
+            <div class="alert alert-success" th:if="${success}" th:text="${success}"></div>
+
+            <form action="/bookHotel" method="post">
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Choose your mode</label>
+                    <select class="form-select" id="exampleSelect1 " name="mode">
+                        <option>Offline</option>
+                        <option>Online</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" name="id" th:value="${hotel}" hidden>
+                    <input type="date" id="date" name="date" />
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Payment</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

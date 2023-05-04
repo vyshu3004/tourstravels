@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/styles.css">
+  <div th:insert="navigation/userNav.html"></div>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col col-md-4" th:each="hotel : ${hotels}">
+      <div class="card">
+        <div class="card-header">Hotel</div>
+        <div class="card-body">
+            <div class="card-text" th:text="'HotelName :' + ' ' +  ${hotel.hName}"></div>
+            <div class="card-text" th:text="'Fare :' + ' ' +  ${hotel.fare}"></div>
+            <div class="card-text" th:text="'City :' + ' ' +  ${hotel.city}"></div>
+            <div class="card-text" th:text="'State :' + ' ' +  ${hotel.state}"></div>
+            <div class="card-text" th:text="'Country :' + ' ' +  ${hotel.country}"></div>
+            <br>
+            <input type="text" th:value="${hotel.id}" name="Id" hidden/>
+            <br>
+            <a class="btn btn-info" th:href="'/bookHotel/' +${hotel.id}" value="submit" >Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

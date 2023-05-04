@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Tours and Travels</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav th:insert="navigation/adminNav.html"></nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-4">
+                        <div class="display-5">ADD FLIGHTS</div>
+                        <p class="lead">Add Flights Here.</p>
+                        <hr class="my-4">
+                        <div th:if="${success}" th:text="${success}" class="alert alert-success"></div>
+                        <div th:if="${error}" th:text="${error}" class="alert alert-danger"></div>
+
+                        <form action="/addFlights" method="post" >
+                            <div class="form-group">
+                                <label for="fName">Flight Name</label>
+                                <input type="text" class="form-control" id="fName" name="fName"
+                                       placeholder="Enter Name Of The Flight"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="fare">Fare</label>
+                                <input type="text" class="form-control" id="fare" name="fare"
+                                       placeholder="Enter fare"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="fromCity">From City</label>
+                                <input type="text" class="form-control" id="fromCity" name="fromCity"
+                                       placeholder="Enter FromCity "/>
+                            </div>
+                            <div class="form-group">
+                                <label for="fromState">FromState</label>
+                                <input type="text" class="form-control" id="fromState" name="fromState"
+                                       placeholder="Enter fromState"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="fromCountry">FromCountry</label>
+                                <input type="text" class="form-control" id="fromCountry" name="fromCountry"
+                                       placeholder="Enter fromCountry"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="toCity">To City</label>
+                                <input type="text" class="form-control" id="toCity" name="toCity"
+                                       placeholder="Enter toCity "/>
+                            </div>
+                            <div class="form-group">
+                                <label for="toState">ToState</label>
+                                <input type="text" class="form-control" id="toState" name="toState"
+                                       placeholder="Enter toState"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="toCountry">ToCountry</label>
+                                <input type="text" class="form-control" id="toCountry" name="toCountry"
+                                       placeholder="Enter ToCountry"/>
+                            </div>
+                            <div class="text-center mt-2">
+                                <button type="submit" class="btn btn-primary w-75">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
